@@ -12,7 +12,7 @@ class PlacesListScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.of(context).pushNamed(AppRoutes.PlaceForm);
+              Navigator.of(context).pushNamed(AppRoutes.placeForm);
             },
             icon: const Icon(Icons.add),
           )

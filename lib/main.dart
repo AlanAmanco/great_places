@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const PlacesListScreen(),
       routes: {
-        AppRoutes.PlaceForm: (context) => const PlaceFormScreen(),
+        AppRoutes.placeForm: (context) => const PlaceFormScreen(),
       },
     );
   }

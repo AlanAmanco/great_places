@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:great_places/widgets/image_input.dart';
 
 class PlaceFormScreen extends StatefulWidget {
-  const PlaceFormScreen({super.key});
+  const PlaceFormScreen({Key? key}) : super(key: key);
 
   @override
   State<PlaceFormScreen> createState() => _PlaceFormScreenState();
@@ -35,14 +35,13 @@ class _PlaceFormScreenState extends State<PlaceFormScreen> {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    const ImageInputState(),
+                    const ImageInput(),
                   ],
                 ),
               ),
             ),
           ),
           ElevatedButton.icon(
-            onPressed: _submitForm,
             icon: const Icon(Icons.add),
             label: const Text('Adicionar'),
             style: ElevatedButton.styleFrom(
@@ -51,7 +50,8 @@ class _PlaceFormScreenState extends State<PlaceFormScreen> {
               elevation: 0,
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
-          )
+            onPressed: _submitForm,
+          ),
         ],
       ),
     );
