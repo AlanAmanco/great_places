@@ -14,7 +14,7 @@ class PlaceFormScreen extends StatefulWidget {
 
 class _PlaceFormScreenState extends State<PlaceFormScreen> {
   final _titleController = TextEditingController();
-  late File _pickedImage;
+  File? _pickedImage;
 
   void _selectImage(File pickedImage) {
     _pickedImage = pickedImage;
@@ -25,11 +25,12 @@ class _PlaceFormScreenState extends State<PlaceFormScreen> {
       return;
     }
 
-    Provider.of<GreatePlaces>(context, listen: false).addPlace(
+    Provider.of<GreatPlaces>(context, listen: false).addPlace(
       _titleController.text,
-      _pickedImage,
+      _pickedImage!,
     );
-    Navigator.of(context).pop;
+
+    Navigator.of(context).pop();
   }
 
   @override
@@ -64,8 +65,8 @@ class _PlaceFormScreenState extends State<PlaceFormScreen> {
             icon: const Icon(Icons.add),
             label: const Text('Adicionar'),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Theme.of(context).colorScheme.secondary,
-              foregroundColor: Colors.black,
+              primary: Theme.of(context).colorScheme.secondary,
+              onPrimary: Colors.black,
               elevation: 0,
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
